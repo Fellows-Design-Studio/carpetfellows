@@ -1,75 +1,86 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Meistä",
+  title: "Meistä | CarpetFellows",
   description: "Tutustu CarpetFellowsiin - skandinaavisen sisustuksen asiantuntija.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Meistä</h1>
-        
-        <div className="prose prose-lg max-w-none">
-          <p className="lead text-xl text-muted-foreground mb-8">
-            CarpetFellows on suomalainen perheyritys, joka on erikoistunut 
-            laadukkaisiin skandinaavisiin mattoihin ja sisustustuotteisiin.
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-6 lg:px-12 text-center">
+          <p className="text-sm tracking-widest uppercase text-gray-500 mb-4">
+            CarpetFellows
           </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Tarina</h2>
-          <p>
-            CarpetFellows syntyi rakkaudesta kauniisiin koteihin ja laadukkaisiin 
-            materiaaleihin. Vuonna 2020 perustettu yrityksemme on kasvanut 
-            pienestä verkkokaupasta Suomen johtavaksi skandinaavisten mattojen 
-            erikoisliikkeeksi.
+          <h1 className="text-3xl lg:text-5xl font-light mb-6">
+            Matot ja sisustus
+            <br />
+            <span className="font-normal">ystävällisesti</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-gray-500 leading-relaxed">
+            Olemme suomalainen perheyritys, joka on erikoistunut laadukkaisiin 
+            skandinaavisiin mattoihin. Valikoimamme koostuu huolellisesti valituista 
+            tuotteista, jotka edustavat pohjoismaista design-filosofiaa.
           </p>
-          
-          <p>
-            Valikoimamme koostuu huolellisesti valituista tuotteista, jotka 
-            edustavat pohjoismaista design-filosofiaa: yksinkertaisuutta, 
-            toiminnallisuutta ja kestävyyttä.
-          </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Arvomme</h2>
-          
-          <ul className="space-y-4">
-            <li>
-              <strong>Laatu:</strong> Jokainen tuote valitaan huolellisesti 
-              laadun ja kestävyyden perusteella.
-            </li>
-            <li>
-              <strong>Kestävyys:</strong> Suosimme ekologisia materiaaleja 
-              ja kestäviä tuotantotapoja.
-            </li>
-            <li>
-              <strong>Asiakaspalvelu:</strong> Olemme täällä sinua varten 
-              - ystävällisesti ja ammattitaitoisesti.
-            </li>
-          </ul>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Ota yhteyttä</h2>
-          
-          <p>
-            Onko sinulla kysyttävää? Olemme täällä auttamassa!
-          </p>
-          
-          <div className="bg-secondary/50 rounded-lg p-6 mt-6">
-            <p>
-              <strong>Sähköposti:</strong>{" "}
-              <a href="mailto:info@carpetfellows.com" className="text-primary hover:underline">
-                info@carpetfellows.com
-              </a>
-            </p>
-            <p>
-              <strong>Puhelin:</strong> 040 123 4567
-            </p>
-            <p>
-              <strong>Osoite:</strong> Mattojenkatu 1, 00100 Helsinki
-            </p>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-16 border-t border-gray-100">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <h3 className="text-sm uppercase tracking-wider mb-4">Laatu</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Jokainen tuote valitaan huolellisesti laadun ja kestävyyden perusteella.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-sm uppercase tracking-wider mb-4">Kestävyys</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Suosimme ekologisia materiaaleja ja kestäviä tuotantotapoja.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-sm uppercase tracking-wider mb-4">Palvelu</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Olemme täällä sinua varten - ystävällisesti ja ammattitaitoisesti.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Contact */}
+      <section className="py-16 border-t border-gray-100">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-xl mx-auto text-center">
+            <h2 className="text-2xl font-light mb-8">Ota yhteyttä</h2>
+            
+            <div className="space-y-4 text-sm">
+              <p>
+                <span className="text-gray-500">Sähköposti:</span>{" "}
+                <a href="mailto:info@carpetfellows.fi" className="hover:text-gray-600">
+                  info@carpetfellows.fi
+                </a>
+              </p>
+              <p>
+                <span className="text-gray-500">Puhelin:</span>{" "}
+                040 123 4567
+              </p>
+              <p>
+                <span className="text-gray-500">Osoite:</span>{" "}
+                Mattojenkatu 1, 00100 Helsinki
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
