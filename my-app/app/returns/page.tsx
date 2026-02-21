@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Palautukset | CarpetFellows",
-  description: "Palautusohjeet ja -ehdot CarpetFellows-verkkokaupasta.",
+  description: "Palautusohjeet ja -ehdot CarpetFellows-verkkokaupasta. 14 päivän palautusoikeus.",
 };
 
 export default function ReturnsPage() {
