@@ -43,15 +43,15 @@ export default function ReturnsPage() {
                     Lähetä sähköpostia osoitteeseen info@carpetfellows.fi ja kerro tilauksen numero.
                   </li>
                   <li>
-                    <span className="font-medium text-gray-900">Pakkaa tuote:</u003e{" "}
+                    <span className="font-medium text-gray-900">Pakkaa tuote:</span>{" "}
                     Pakkaa tuote huolellisesti alkuperäiseen paketukseen tai vastaavaan.
                   </li>
                   <li>
-                    <span className="font-medium text-gray-900">Lähetä paketti:</u003e{" "}
+                    <span className="font-medium text-gray-900">Lähetä paketti:</span>{" "}
                     Käytä palautuslähetystä, jonka saat sähköpostiin ilmoituksen jälkeen.
                   </li>
                   <li>
-                    <span className="font-medium text-gray-900">Hyvitys:</u003e{" "}
+                    <span className="font-medium text-gray-900">Hyvitys:</span>{" "}
                     Hyvitämme rahat tilillesi 5-10 arkipäivän kuluessa palautuksen saapumisesta.
                   </li>
                 </ol>
@@ -63,11 +63,11 @@ export default function ReturnsPage() {
               <h2 className="text-lg font-normal mb-4">Palautuskulut</h2>
               <div className="text-sm text-gray-600 space-y-2">
                 <p>
-                  <span className="font-medium text-gray-900">Virheellinen tai vaurioitunut tuote:</u003e{" "}
+                  <span className="text-gray-900">Virheellinen tai vaurioitunut tuote:</span>{" "}
                   Palautus on ilmainen. Hyvitämme myös alkuperäiset toimituskulut.
                 </p>
                 <p>
-                  <span className="font-medium text-gray-900">Muu syy:</u003e{" "}
+                  <span className="text-gray-900">Muu syy:</span>{" "}
                   Asiakas maksaa palautuskulut (6,90 €). Kulut vähennetään hyvityksestä.
                 </p>
               </div>
@@ -78,8 +78,8 @@ export default function ReturnsPage() {
               <h2 className="text-lg font-normal mb-4">Kysyttävää palautuksista?</h2>
               <div className="text-sm text-gray-600">
                 <p className="mb-2">Ota yhteyttä asiakaspalveluumme:</p>
-                <p><span className="text-gray-900">Sähköposti:</u003e info@carpetfellows.fi</p>
-                <p><span className="text-gray-900">Puhelin:</u003e 040 123 4567</p>
+                <p><span className="text-gray-900">Sähköposti:</span> info@carpetfellows.fi</p>
+                <p><span className="text-gray-900">Puhelin:</span> 040 123 4567</p>
               </div>
             </section>
           </div>
