@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "env": { "browser": true, "es2021": true },
+  "extends": [
+    "sanity",
+    "sanity/typescript",
+    "sanity/react",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime"
+  ]
+}
