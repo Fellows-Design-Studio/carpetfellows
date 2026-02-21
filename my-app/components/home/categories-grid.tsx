@@ -55,7 +55,7 @@ export function CategoriesGrid() {
               />
               
               {/* Subtle overlay */}
-              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors" /
+              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors" />
               
               {/* Category name at bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
