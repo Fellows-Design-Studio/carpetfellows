@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { ShoppingBag, Menu, Search, X } from "lucide-react";
+import { ShoppingBag, Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { CartSheet } from "@/components/cart/cart-sheet";
@@ -12,7 +11,6 @@ import { useState } from "react";
 const navigation = [
   { name: "Matot", href: "/products" },
   { name: "Kategoriat", href: "/products" },
-  { name: "Blogi", href: "/blog" },
   { name: "Meistä", href: "/about" },
 ];
 
@@ -20,23 +18,23 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="flex h-16 items-center justify-between">
           {/* Mobile menu */}
           <Sheet>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" aria-label="Avaa valikko">
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-4 mt-8">
+            <SheetContent side="left" className="w-[300px]">
+              <nav className="flex flex-col gap-6 mt-8">
                 {navigation.map((item) => (
                   <SheetClose asChild key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      className="text-sm tracking-wide text-gray-900 hover:text-gray-600 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -47,8 +45,8 @@ export function Header() {
           </Sheet>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold tracking-tight text-primary">
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
+            <span className="text-lg font-light tracking-widest uppercase">
               CarpetFellows
             </span>
           </Link>
@@ -59,7 +57,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm tracking-wide text-gray-900 hover:text-gray-600 transition-colors"
               >
                 {item.name}
               </Link>
@@ -67,12 +65,13 @@ export function Header() {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <Button
               variant="ghost"
               size="icon"
               aria-label="Haku"
               onClick={() => setIsSearchOpen(true)}
+              className="hover:bg-transparent"
             >
               <Search className="h-5 w-5" />
             </Button>

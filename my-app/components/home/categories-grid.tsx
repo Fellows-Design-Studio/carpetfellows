@@ -1,47 +1,67 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Category } from "@/types/sanity";
 
-interface CategoriesGridProps {
-  categories: Category[];
-}
+// Staattiset kategoriat Marimekko-tyylisesti
+const categories = [
+  {
+    id: "matot",
+    name: "Matot",
+    image: "/images/category-rugs.jpg",
+    href: "/products",
+  },
+  {
+    id: "villamatot",
+    name: "Villamatot",
+    image: "/images/category-wool.jpg",
+    href: "/products",
+  },
+  {
+    id: "kaytavamatot",
+    name: "Käytävämatot",
+    image: "/images/category-runners.jpg",
+    href: "/products",
+  },
+  {
+    id: "viskoosimatot",
+    name: "Viskoosimatot",
+    image: "/images/category-viscose.jpg",
+    href: "/products",
+  },
+];
 
-export function CategoriesGrid({ categories }: CategoriesGridProps) {
+export function CategoriesGrid() {
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Selaa kategorioittain</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Löydä täydellinen matto kotiisi laajasta valikoimastamme
-          </p>
-        </div>
+    <section className="py-16 lg:py-24 bg-white">
+      <div className="container mx-auto px-6 lg:px-12">
+        <p className="text-sm tracking-widest uppercase text-gray-500 mb-4 text-center">
+          Osta kategorioittain
+        </p>
+        <h2 className="text-2xl lg:text-3xl font-light text-center mb-12">
+          Selaa valikoimaamme
+        </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {categories.map((category) => (
             <Link
-              key={category._id}
-              href={`/products?category=${category.slug.current}`}
-              className="group relative aspect-square rounded-xl overflow-hidden bg-secondary"
+              key={category.id}
+              href={category.href}
+              className="group relative aspect-[3/4] overflow-hidden bg-gray-100"
             >
-              {category.image ? (
-                <Image
-                  src={category.image.url}
-                  alt={category.name}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center bg-secondary">
-                  <span className="text-4xl">🏠</span>
-                </div>
-              )}
+              <Image
+                src={category.image}
+                alt={category.name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              {/* Subtle overlay */}
+              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors" /
               
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-semibold text-lg">{category.name}</h3>
-                <p className="text-white/80 text-sm">{category.productCount || 0} tuotetta</p>
+              {/* Category name at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white text-lg font-light tracking-wide drop-shadow-lg">
+                  {category.name}
+                </h3>
               </div>
             </Link>
           ))}
