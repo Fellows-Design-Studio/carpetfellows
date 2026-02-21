@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 interface ProductsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
     material?: string;
     size?: string;
@@ -18,10 +18,11 @@ interface ProductsPageProps {
     minPrice?: string;
     maxPrice?: string;
     q?: string;
-  };
+  }>;
 }
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const params = await searchParams;
   const [products, categories] = await Promise.all([
     getProducts(),
     getCategories(),
@@ -30,42 +31,42 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   // Filter products based on search params
   let filteredProducts = products;
 
-  if (searchParams.category) {
+  if (params.category) {
     filteredProducts = filteredProducts.filter(
-      (p) => p.category?.slug.current === searchParams.category
+      (p) => p.category?.slug.current === params.category
     );
   }
 
-  if (searchParams.material) {
-    const material = searchParams.material;
+  if (params.material) {
+    const material = params.material;
     filteredProducts = filteredProducts.filter(
       (p) => p.material?.toLowerCase() === material.toLowerCase()
     );
   }
 
-  if (searchParams.color) {
-    const color = searchParams.color;
+  if (params.color) {
+    const color = params.color;
     filteredProducts = filteredProducts.filter(
       (p) => p.color?.toLowerCase() === color.toLowerCase()
     );
   }
 
-  if (searchParams.minPrice) {
-    const minPrice = parseFloat(searchParams.minPrice);
+  if (params.minPrice) {
+    const minPrice = parseFloat(params.minPrice);
     filteredProducts = filteredProducts.filter(
       (p) => (p.salePrice || p.price) >= minPrice
     );
   }
 
-  if (searchParams.maxPrice) {
-    const maxPrice = parseFloat(searchParams.maxPrice);
+  if (params.maxPrice) {
+    const maxPrice = parseFloat(params.maxPrice);
     filteredProducts = filteredProducts.filter(
       (p) => (p.salePrice || p.price) <= maxPrice
     );
   }
 
-  if (searchParams.q) {
-    const query = searchParams.q.toLowerCase();
+  if (params.q) {
+    const query = params.q.toLowerCase();
     filteredProducts = filteredProducts.filter(
       (p) =>
         p.name.toLowerCase().includes(query) ||
